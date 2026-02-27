@@ -1,0 +1,117 @@
+/* Force Breeze Dark colors everywhere */
+:root,
+#messengerWindow,
+:root[lwtheme] {
+  --toolbar-bgcolor: #202326 !important;
+  --toolbar-color: #fcfcfc !important;
+  --toolbar-field-color: #fcfcfc !important;
+  --toolbar-field-background-color: #141618 !important;
+  --toolbar-field-border-color: #363a3f !important;
+  --toolbar-field-focus-background-color: #141618 !important;
+  --toolbar-field-focus-color: #fcfcfc !important;
+  --lwt-accent-color: #141618 !important;
+  --lwt-accent-color-inactive: #141618 !important;
+  --lwt-text-color: #fcfcfc !important;
+  --lwt-toolbar-field-background-color: #141618 !important;
+  --lwt-toolbar-field-color: #fcfcfc !important;
+  --sidebar-background-color: #141618 !important;
+  --sidebar-text-color: #fcfcfc !important;
+  --sidebar-border-color: #292c30 !important;
+  --arrowpanel-background: #202326 !important;
+  --arrowpanel-color: #fcfcfc !important;
+  --arrowpanel-border-color: #363a3f !important;
+  --chrome-content-separator-color: #363a3f !important;
+  --toolbarbutton-hover-background: #292c30 !important;
+  --toolbarbutton-active-background: #363a3f !important;
+  --button-bgcolor: #292c30 !important;
+  --button-hover-bgcolor: #363a3f !important;
+  --button-active-bgcolor: #3d4147 !important;
+  --button-color: #fcfcfc !important;
+  --input-bgcolor: #141618 !important;
+  --input-color: #fcfcfc !important;
+  --input-border-color: #363a3f !important;
+  --selected-item-color: #3daee9 !important;
+  --selected-item-text-color: #ffffff !important;
+  --tab-selected-bgcolor: #202326 !important;
+  --tab-selected-color: #fcfcfc !important;
+  --layout-background-0: #141618 !important;
+  --layout-background-1: #202326 !important;
+  --layout-background-2: #292c30 !important;
+  --layout-background-3: #363a3f !important;
+  --layout-background-4: #3d4147 !important;
+  --layout-color-0: #fcfcfc !important;
+  --layout-color-1: #a1a9b1 !important;
+  --layout-color-2: #747a82 !important;
+  --layout-border-0: #363a3f !important;
+  --layout-border-1: #292c30 !important;
+  --folderpane-unread-count-background: #3daee9 !important;
+  --color-amber-30: #202326 !important;
+  --color-ink-30: #a1a9b1 !important;
+  --color-ink-40: #747a82 !important;
+  --splitter-color: #363a3f !important;
+  --tabline-color: #3daee9 !important;
+  --tab-loading-fill: #3daee9 !important;
+  --new-folder-color: #3daee9 !important;
+  --in-content-page-background: #141618 !important;
+  --in-content-page-color: #fcfcfc !important;
+  --in-content-box-background: #202326 !important;
+  --in-content-box-border-color: #363a3f !important;
+  --in-content-button-background: #292c30 !important;
+  --in-content-button-background-hover: #363a3f !important;
+  --in-content-button-background-active: #3d4147 !important;
+  --in-content-primary-button-background: #3daee9 !important;
+  --in-content-primary-button-background-hover: #5bbef0 !important;
+  --in-content-primary-button-background-active: #2a9cd8 !important;
+}
+
+/* Force backgrounds on main areas */
+*|*:root {
+  -moz-appearance: none !important;
+  background-color: #141618 !important;
+}
+
+#messengerWindow,
+#tabpanelcontainer,
+#mail-toolbox,
+#folderPaneBox,
+#folderTree,
+#threadTree,
+#messagepane,
+#status-bar,
+#tabmail-container,
+#folderPaneHeaderBar,
+.themeable-full,
+.themeable-brighttext {
+  background-color: #141618 !important;
+  color: #fcfcfc !important;
+}
+
+#toolbar-menubar,
+#mail-bar3,
+#tabbar-toolbar,
+.toolbar,
+#unifiedToolbar,
+unified-toolbar {
+  background-color: #202326 !important;
+  color: #fcfcfc !important;
+}
+
+#tabmail-tabs {
+  background-color: #141618 !important;
+}
+
+#status-bar {
+  background-color: #202326 !important;
+  border-top-color: #363a3f !important;
+}
+
+/* Tree views */
+tree, treechildren, #threadTree treechildren {
+  background-color: #141618 !important;
+  color: #fcfcfc !important;
+}
+
+/* Splitters */
+splitter {
+  background-color: #292c30 !important;
+}
