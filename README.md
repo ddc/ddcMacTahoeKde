@@ -13,7 +13,7 @@
     <br>
     <a href="https://github.com/ddc/ddcMacTahoeKde/issues"><img src="https://img.shields.io/github/issues/ddc/ddcMacTahoeKde?style=plastic&logo=github&logoColor=white" alt="issues"/></a>
     <a href="https://github.com/ddc/ddcMacTahoeKde/actions/workflows/workflow.yml"><img src="https://img.shields.io/github/actions/workflow/status/ddc/ddcMacTahoeKde/workflow.yml?style=plastic&logo=github&logoColor=white&label=CI%2FCD%20Pipeline" alt="CI/CD Pipeline"/></a>
-    <a href="https://actions-badge.atrox.dev/ddc/ddcMacTahoeKde/goto?ref=main"><img src="https://img.shields.io/endpoint.svg?url=https%3A//actions-badge.atrox.dev/ddc/ddcMacTahoeKde/badge?ref=main&label=build&logo=github&style=plastic" alt="Build Status"/></a>
+    <a href="https://actions-badge.atrox.dev/ddc/ddcMacTahoeKde/goto?ref=master"><img src="https://img.shields.io/endpoint.svg?url=https%3A//actions-badge.atrox.dev/ddc/ddcMacTahoeKde/badge?ref=master&label=build&logo=github&style=plastic" alt="Build Status"/></a>
 </p>
 
 <p align="center">A dark theme suite for <a href="https://kde.org/pt-br/plasma-desktop">KDE Plasma 6</a>, based on <a href="https://github.com/vinceliuice/MacTahoe-kde">MacTahoe KDE</a> and recolored to match <a href="https://github.com/KDE/breeze">Breeze Dark's palette</a>.</p>
