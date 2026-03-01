@@ -1,6 +1,20 @@
-# ddcMacTahoeKde
+<h1 align="center">
+  <img src="https://raw.githubusercontent.com/ddc/ddcMacTahoeKde/refs/heads/master/assets/ddcTheme-icon.svg" alt="ddcMacTahoeKde" width="150">
+  <br>
+  DDC MacTahoe KDE
+</h1>
 
-A dark theme suite for KDE Plasma 6, based on [MacTahoe KDE](https://github.com/vinceliuice/MacTahoe-kde) and recolored to match Breeze Dark's cool blue-gray palette — eliminating the original warm brown/gray tones.
+<p align="center">
+    <a href="https://www.paypal.com/ncp/payment/6G9Z78QHUD4RJ"><img src="https://img.shields.io/badge/Donate-PayPal-brightgreen.svg?style=plastic&logo=paypal&logoColor=3776AB" alt="Donate"/></a>
+    <a href="https://github.com/sponsors/ddc"><img src="https://img.shields.io/static/v1?style=plastic&label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4" alt="Sponsor"/></a>
+    <br>
+    <a href="https://github.com/ddc/ddcMacTahoeKde/issues"><img src="https://img.shields.io/github/issues/ddc/ddcMacTahoeKde?style=plastic&logo=github&logoColor=white" alt="issues"/></a>
+    <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic&logo=gnu&logoColor=white" alt="License: GPLv3"/></a>
+    <a href="https://github.com/ddc/ddcMacTahoeKde/releases/latest"><img src="https://img.shields.io/github/v/release/ddc/ddcMacTahoeKde?style=plastic&logo=github&logoColor=white" alt="Release"/></a>
+</p>
+
+<p align="center">A dark theme suite for <a href="https://kde.org/pt-br/plasma-desktop">KDE Plasma 6</a>, based on <a href="https://github.com/vinceliuice/MacTahoe-kde">MacTahoe KDE</a> and recolored to match <a href="https://github.com/KDE/breeze">Breeze Dark's palette</a>.</p>
+
 
 ## Table of Contents
 

@@ -2,20 +2,18 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "vinceliuice@hotmail.com",
-                "Name": "Vince Liuice"
+                "Email": "daniel@ddcsoftwares.com",
+                "Name": "Daniel Costa"
             }
         ],
         "Category": "Plasma 6.0 theme",
-        "Description": "MacTahoe dark by Vince Liuice",
-        "Description[zh_CN]": "MacTahoe 暗黑苹果主题，由 Vince Liuice (视觉设计师) 设计制作",
+        "Description": "ddcMacTahoeKde dark theme for KDE Plasma",
         "EnabledByDefault": true,
         "Id": "ddcMacTahoeKde-Dark",
         "License": "GPL-3.0",
         "Name": "ddcMacTahoeKde-Dark",
-        "Name[zh_CN]": "MacTahoe 暗黑苹果",
-        "Version": "6.2.0",
-        "Website": "https://github.com/vinceliuice"
+        "Version": "1.0.0",
+        "Website": "https://github.com/ddc/ddcMacTahoeKde"
     },
     "X-Plasma-API": "5.0"
 }

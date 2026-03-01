@@ -3,8 +3,8 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "vinceliuice@hotmail.com",
-                "Name": "Vince Liuice"
+                "Email": "daniel@ddcsoftwares.com",
+                "Name": "Daniel Costa"
             }
         ],
         "Category": "Global Themes (Plasma 6)",
@@ -12,11 +12,12 @@
             "Plasma/LookAndFeel"
         ],
         "EnabledByDefault": true,
-        "Description": "MacOS Tahoe theme for kde plasma",
+        "Description": "MacOS Tahoe dark theme for KDE Plasma",
         "Id": "com.github.ddc.ddcMacTahoeKde-Dark",
-        "License": "GPLv3",
+        "License": "GPL-3.0",
         "Name": "ddcMacTahoeKde-Dark",
-        "Website": "https://github.com/vinceliuice/MacTahoe-kde"
+        "Version": "1.0.0",
+        "Website": "https://github.com/ddc/ddcMacTahoeKde"
     },
     "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Logout;Lock;Suspend;Shutdown;Hibernate;",
     "X-KDE-fallbackPackage": "org.kde.breeze.desktop",

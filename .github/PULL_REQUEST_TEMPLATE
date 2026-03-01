@@ -1,0 +1,29 @@
+## Summary
+<!-- Brief description of what this PR does and why -->
+
+## Changes Made
+<!-- List the key changes -->
+
+## Type of Change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Breaking change (existing functionality affected)
+- [ ] Refactoring (no functional changes)
+- [ ] Documentation
+- [ ] CI/CD or build configuration
+- [ ] Dependencies update
+
+## Testing
+- [ ] Unit tests added/updated
+- [ ] Integration tests added/updated
+- [ ] All existing tests pass
+- [ ] Manual testing performed
+
+## Checklist
+- [ ] Code follows the project's style and conventions
+- [ ] Documentation updated (if applicable)
+- [ ] No new warnings or linter errors introduced
+- [ ] I have considered how this change may affect other services
+
+## Reviewer
+- [ ] I understand that by approving this PR, I share responsibility for these changes

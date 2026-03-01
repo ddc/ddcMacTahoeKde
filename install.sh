@@ -14,6 +14,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION="$(cat "$SCRIPT_DIR/VERSION")"
 
 # Defaults
 INSTALL_SDDM=true
@@ -316,7 +317,7 @@ ok "Cache cleared"
 # Done
 # -------------------------------------------------------------------
 echo ""
-ok "ddcMacTahoeKde installation complete!"
+ok "ddcMacTahoeKde v${VERSION} installation complete!"
 echo ""
 echo "Notes:"
 echo "  - Log out and back in for all changes to take effect"

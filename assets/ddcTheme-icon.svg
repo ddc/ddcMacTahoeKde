@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#282C34"/>
+      <stop offset="100%" style="stop-color:#1E1F22"/>
+    </linearGradient>
+  </defs>
+  <rect width="150" height="150" rx="24" fill="url(#bg)"/>
+  <text x="75" y="58" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="22" font-weight="bold" fill="#ABB2BF">DDC</text>
+  <rect x="25" y="72" width="100" height="2" rx="1" fill="#3C4049"/>
+  <circle cx="38" cy="95" r="5" fill="#629755"/>
+  <circle cx="58" cy="95" r="5" fill="#FEDB89"/>
+  <circle cx="78" cy="95" r="5" fill="#DE6A66"/>
+  <circle cx="98" cy="95" r="5" fill="#CF84CF"/>
+  <circle cx="118" cy="95" r="5" fill="#4C72E8"/>
+  <text x="75" y="125" text-anchor="middle" font-family="JetBrains Mono, Consolas, monospace" font-size="11" fill="#6F737A">THEME</text>
+</svg>
