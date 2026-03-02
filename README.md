@@ -1,7 +1,7 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/ddc/ddcMacTahoeKde/refs/heads/master/assets/ddcMacTahoeKde-icon.svg" alt="macOS Tahoe KDE Plasma 6 Theme" width="150">
+  <img src="https://raw.githubusercontent.com/ddc/ddcMacTahoeKde/refs/heads/master/assets/ddcTheme-icon.svg" alt="ddcTheme" width="150">
   <br>
-  macOS Tahoe KDE Plasma 6 Theme
+  DDC macOS Tahoe KDE Plasma 6 Theme
 </h1>
 
 <p align="center">
