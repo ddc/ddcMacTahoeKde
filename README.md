@@ -18,18 +18,17 @@
 
 <p align="center">A dark theme suite for <a href="https://kde.org/pt-br/plasma-desktop">KDE Plasma 6</a>, based on <a href="https://github.com/vinceliuice/MacTahoe-kde">MacTahoe KDE</a> and recolored to match <a href="https://github.com/KDE/breeze">Breeze Dark's palette</a>.</p>
 
-
 # Table of Contents
 
 - [What's Changed](#whats-changed)
 - [Components](#components)
 - [Installation](#installation)
-  - [Dependencies](#dependencies)
-  - [Install](#install)
-  - [Uninstall](#uninstall)
+    - [Dependencies](#dependencies)
+    - [Install](#install)
+    - [Uninstall](#uninstall)
 - [What the Installer Does](#what-the-installer-does)
 - [Extras](#extras)
-  - [Thunderbird / Betterbird Dark Theme](#thunderbird--betterbird-dark-theme)
+    - [Thunderbird / Betterbird Dark Theme](#thunderbird--betterbird-dark-theme)
 - [Project Structure](#project-structure)
 - [Credits](#credits)
 - [License](#license)
@@ -40,7 +39,8 @@
 This project takes [vinceliuice's MacTahoe theme](https://github.com/vinceliuice/MacTahoe-kde) and applies the following modifications:
 
 - **Plasma desktop theme SVGs** — replaced with Breeze Dark originals for consistent panel/widget styling
-- **Kvantum colors** — dark variant recolored from warm grays (#1f1f1f, #282828, #333333) to Breeze Dark's cool blue-grays (#141618, #202326, #292c30)
+- **Kvantum colors
+  ** — dark variant recolored from warm grays (#1f1f1f, #282828, #333333) to Breeze Dark's cool blue-grays (#141618, #202326, #292c30)
 - **KDE color scheme** — selection/highlight colors corrected
 - **Inactive window behavior** — fixed (no dimming, blur on all windows)
 - **Tab alignment** — left-aligned tabs in Konsole, Kate, and other apps (Kvantum `left_tabs=true`)
@@ -50,19 +50,19 @@ This project takes [vinceliuice's MacTahoe theme](https://github.com/vinceliuice
 
 # Components
 
-| Component          | Name                              |
-|--------------------|-----------------------------------|
-| Color Scheme       | DDCmacOsTahoeKdeThemeDark                |
-| Application Style  | kvantum-dark                      |
-| Plasma Theme       | DDCmacOsTahoeKdeTheme-Dark               |
-| Window Decorations | DDCmacOsTahoeKdeTheme-Dark (Aurorae)     |
-| Icons              | WhiteSur-dark                     |
-| Cursors            | MacTahoe                          |
-| System Sounds      | MacOS Sounds                      |
-| Splash Screen      | DDCmacOsTahoeKdeTheme-Dark               |
-| SDDM               | DDCmacOsTahoeKdeTheme-Dark               |
-| GTK Style          | MacTahoe-Dark-Darker              |
-| Kvantum Style      | DDCmacOsTahoeKdeThemeDark                |
+| Component          | Name                                 |
+|--------------------|--------------------------------------|
+| Color Scheme       | DDCmacOsTahoeKdeThemeDark            |
+| Application Style  | kvantum-dark                         |
+| Plasma Theme       | DDCmacOsTahoeKdeTheme-Dark           |
+| Window Decorations | DDCmacOsTahoeKdeTheme-Dark (Aurorae) |
+| Icons              | WhiteSur-dark                        |
+| Cursors            | MacTahoe                             |
+| System Sounds      | MacOS Sounds                         |
+| Splash Screen      | DDCmacOsTahoeKdeTheme-Dark           |
+| SDDM               | DDCmacOsTahoeKdeTheme-Dark           |
+| GTK Style          | MacTahoe-Dark-Darker                 |
+| Kvantum Style      | DDCmacOsTahoeKdeThemeDark            |
 
 # Installation
 
@@ -73,16 +73,19 @@ This project takes [vinceliuice's MacTahoe theme](https://github.com/vinceliuice
 - `git` — for downloading icon and GTK themes
 
 On Fedora:
+
 ```bash
 sudo dnf install -y kvantum sassc git
 ```
 
 On Ubuntu / Debian:
+
 ```bash
 sudo apt install -y qt6-style-kvantum sassc git
 ```
 
 On Arch:
+
 ```bash
 sudo pacman -S --noconfirm kvantum sassc git
 ```
@@ -159,11 +162,9 @@ This project is a color-corrected fork of themes by [vinceliuice](https://github
 - [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme) — Icon theme (with close icons patched to Breeze X)
 - MacOS Sounds — System sound theme (Apple macOS sound effects)
 
-
 # License
 
 GPLv3, same as the original MacTahoe themes.
-
 
 # Support
 If you find this project helpful, consider supporting development:
