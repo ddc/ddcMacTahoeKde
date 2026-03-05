@@ -1,8 +1,6 @@
 [Wallpaper]
-defaultWallpaperTheme=DDCmacOsTahoeKdeTheme-Dark
-defaultFileSuffix=.jpeg
-defaultWidth=3840
-defaultHeight=2160
+defaultWallpaperTheme=
+defaultWallpaperPlugin=org.kde.color
 
 [ContrastEffect]
 enabled=false

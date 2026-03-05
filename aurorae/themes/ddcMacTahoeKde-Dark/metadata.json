@@ -15,7 +15,7 @@
         "Name": "DDCmacOsTahoeKdeTheme-Dark",
         "Description" : "DDCmacOsTahoeKdeTheme-Dark window decorations",
         "Id": "DDCmacOsTahoeKdeTheme-Dark",
-        "Version": "1.0.2",
+        "Version": "1.0.3",
         "License": "GPL-3.0",
         "Website": "https://github.com/ddc/macOsTahoeKdeTheme",
         "X-KDE-PluginInfo-blur": false,

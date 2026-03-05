@@ -6,8 +6,8 @@
 #
 # Options:
 #   --no-sddm       Skip SDDM theme installation
-#   --no-icons      Skip icon/cursor theme download & install
-#   --no-gtk        Skip GTK theme download & build
+#   --no-icons      Skip icon/cursor theme installation
+#   --no-gtk        Skip GTK theme installation
 #   --no-apply      Install files only, don't apply the theme
 #   -h, --help      Show this help message
 
@@ -57,7 +57,7 @@ done
 info "Checking dependencies..."
 
 MISSING=()
-for cmd in kvantummanager sassc git; do
+for cmd in kvantummanager; do
     if ! command -v "$cmd" &>/dev/null; then
         MISSING+=("$cmd")
     fi
@@ -66,13 +66,13 @@ done
 if [[ ${#MISSING[@]} -gt 0 ]]; then
     error "Missing required commands: ${MISSING[*]}"
     if command -v dnf &>/dev/null; then
-        echo "  Install them with: sudo dnf install kvantum sassc git"
+        echo "  Install them with: sudo dnf install kvantum"
     elif command -v apt &>/dev/null; then
-        echo "  Install them with: sudo apt install qt6-style-kvantum sassc git"
+        echo "  Install them with: sudo apt install qt6-style-kvantum"
     elif command -v pacman &>/dev/null; then
-        echo "  Install them with: sudo pacman -S kvantum sassc git"
+        echo "  Install them with: sudo pacman -S kvantum"
     else
-        echo "  Install: kvantum, sassc, git"
+        echo "  Install: kvantum"
     fi
     exit 1
 fi
@@ -141,64 +141,39 @@ cp -a "$SCRIPT_DIR/kvantum/DDCmacOsTahoeKdeTheme/"* "$KVANTUM_DIR/"
 ok "Kvantum theme installed"
 
 # -------------------------------------------------------------------
-# Step 7: Copy MacOS Sounds
+# Step 7: Copy sound theme
 # -------------------------------------------------------------------
 SOUNDS_DIR="$HOME/.local/share/sounds"
 mkdir -p "$SOUNDS_DIR"
 
-info "Installing sound theme: MacOS Sounds..."
-cp -a "$SCRIPT_DIR/sounds/MacOS Sounds" "$SOUNDS_DIR/"
-ok "MacOS Sounds installed"
+info "Installing sound theme: DDCmacOsTahoeKdeTheme Sounds..."
+cp -a "$SCRIPT_DIR/sounds/DDCmacOsTahoeKdeTheme Sounds" "$SOUNDS_DIR/"
+ok "DDCmacOsTahoeKdeTheme Sounds installed"
 
 # -------------------------------------------------------------------
-# Step 8: Download & install WhiteSur icons
+# Step 8: Install bundled icons and cursors
 # -------------------------------------------------------------------
 if $INSTALL_ICONS; then
-    TMPDIR="$(mktemp -d)"
-    trap 'rm -rf "$TMPDIR"' EXIT
-
-    info "Downloading WhiteSur icon theme..."
-    git clone --depth 1 https://github.com/vinceliuice/WhiteSur-icon-theme.git "$TMPDIR/WhiteSur-icon-theme"
-    info "Installing WhiteSur icons..."
-    "$TMPDIR/WhiteSur-icon-theme/install.sh"
-    ok "WhiteSur icons installed"
-
-    # Patch WhiteSur close icons — replace red circle with Breeze's simple X
-    info "Patching WhiteSur close icons (replacing red circles with Breeze X)..."
     ICON_DIR="$HOME/.local/share/icons"
-    for variant in WhiteSur-dark WhiteSur-light; do
-        if [[ "$variant" == *dark* ]]; then
-            BREEZE_VARIANT="breeze-dark"
-        else
-            BREEZE_VARIANT="breeze"
-        fi
-        for size in 16 22 24 32; do
-            for name in window-close dialog-close document-close view-close view-left-close view-right-close; do
-                src="/usr/share/icons/${BREEZE_VARIANT}/actions/${size}/${name}.svg"
-                dst="${ICON_DIR}/${variant}/actions/${size}/${name}.svg"
-                if [[ -f "$src" && -f "$dst" ]]; then
-                    cp "$src" "$dst"
-                fi
-            done
-        done
-    done
-    ok "Close icons patched"
+    mkdir -p "$ICON_DIR"
+
+    info "Installing DDCmacOsTahoeKdeTheme-icons-dark..."
+    cp -a "$SCRIPT_DIR/icons/DDCmacOsTahoeKdeTheme-icons-dark" "$ICON_DIR/"
+    ok "Icon theme installed"
 
     # -------------------------------------------------------------------
-    # Step 9: Download & install MacTahoe icons/cursors
+    # Step 9: Install bundled cursors
     # -------------------------------------------------------------------
-    info "Downloading MacTahoe icon theme..."
-    git clone --depth 1 https://github.com/vinceliuice/MacTahoe-icon-theme.git "$TMPDIR/MacTahoe-icon-theme"
-    info "Installing MacTahoe icons and cursors..."
-    "$TMPDIR/MacTahoe-icon-theme/install.sh"
-    ok "MacTahoe icons and cursors installed"
+    info "Installing DDCmacOsTahoeKdeTheme cursors..."
+    cp -a "$SCRIPT_DIR/cursors/DDCmacOsTahoeKdeTheme" "$ICON_DIR/"
+    cp -a "$SCRIPT_DIR/cursors/DDCmacOsTahoeKdeTheme-dark" "$ICON_DIR/"
 
     # Fix cursor aliases: upstream uses text-content alias files instead of symlinks.
     # KDE's cursor KCM calls XcursorFilenameLoadAllImages("cursors/left_ptr") to
     # detect available sizes, but libXcursor can't follow text aliases — only symlinks.
     # Without this fix, the cursor size dropdown won't appear in System Settings.
     info "Converting cursor text aliases to symlinks..."
-    for cursor_theme in MacTahoe MacTahoe-dark MacTahoe-light; do
+    for cursor_theme in DDCmacOsTahoeKdeTheme DDCmacOsTahoeKdeTheme-dark; do
         cursor_dir="${ICON_DIR}/${cursor_theme}/cursors"
         if [[ -d "$cursor_dir" ]]; then
             for f in "$cursor_dir"/*; do
@@ -217,9 +192,8 @@ if $INSTALL_ICONS; then
     if command -v python3 &>/dev/null && python3 -c "from PIL import Image" 2>/dev/null; then
         info "Adding 36px and 40px cursor sizes..."
         python3 "$SCRIPT_DIR/scripts/add_cursor_sizes.py" \
-            "${ICON_DIR}/MacTahoe/cursors" \
-            "${ICON_DIR}/MacTahoe-dark/cursors" \
-            "${ICON_DIR}/MacTahoe-light/cursors"
+            "${ICON_DIR}/DDCmacOsTahoeKdeTheme/cursors" \
+            "${ICON_DIR}/DDCmacOsTahoeKdeTheme-dark/cursors"
         ok "Cursor sizes 36 and 40 added"
     else
         warn "python3-pillow not found — skipping extra cursor sizes (36, 40)"
@@ -227,39 +201,29 @@ if $INSTALL_ICONS; then
 
     # Fix PyCharm cursor: replace size_hor with col-resize symlink
     info "Fixing PyCharm cursor (size_hor → col-resize)..."
-    for cursor_theme in MacTahoe MacTahoe-dark MacTahoe-light; do
+    for cursor_theme in DDCmacOsTahoeKdeTheme DDCmacOsTahoeKdeTheme-dark; do
         cursor_dir="${ICON_DIR}/${cursor_theme}/cursors"
         if [[ -d "$cursor_dir" ]] && [[ -e "$cursor_dir/size_hor" ]] && [[ ! -e "$cursor_dir/col-resize" ]]; then
             ln -s size_hor "$cursor_dir/col-resize"
         fi
     done
     ok "PyCharm cursor fix applied"
-
-    trap - EXIT
-    rm -rf "$TMPDIR"
 else
-    warn "Skipping icon theme installation (--no-icons)"
+    warn "Skipping icon/cursor installation (--no-icons)"
 fi
 
 # -------------------------------------------------------------------
-# Step 10: Download & build GTK theme
+# Step 10: Install bundled GTK theme
 # -------------------------------------------------------------------
 if $INSTALL_GTK; then
-    TMPDIR="$(mktemp -d)"
+    GTK_DIR="$HOME/.themes"
+    mkdir -p "$GTK_DIR"
 
-    info "Downloading MacTahoe GTK theme..."
-    git clone --depth 1 https://github.com/vinceliuice/MacTahoe-gtk-theme.git "$TMPDIR/MacTahoe-gtk-theme"
-
-    info "Applying Breeze Dark color patch..."
-    patch -p1 -d "$TMPDIR/MacTahoe-gtk-theme" < "$SCRIPT_DIR/gtk/colors.patch"
-
-    info "Building & installing GTK dark theme..."
-    "$TMPDIR/MacTahoe-gtk-theme/install.sh" -c dark --darker
-
-    ok "MacTahoe GTK dark theme installed"
-    rm -rf "$TMPDIR"
+    info "Installing GTK theme: DDCmacOsTahoeKdeTheme-Dark..."
+    cp -a "$SCRIPT_DIR/gtk/themes/DDCmacOsTahoeKdeTheme-Dark" "$GTK_DIR/"
+    ok "GTK theme installed"
 else
-    warn "Skipping GTK theme build (--no-gtk)"
+    warn "Skipping GTK theme installation (--no-gtk)"
 fi
 
 # -------------------------------------------------------------------
@@ -287,15 +251,15 @@ if $APPLY_THEME; then
     kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme "__aurorae__svg__DDCmacOsTahoeKdeTheme-Dark"
 
     # Set icons and cursor
-    kwriteconfig6 --file kdeglobals --group Icons --key Theme "WhiteSur-dark"
-    kwriteconfig6 --file kcminputrc --group Mouse --key cursorTheme "MacTahoe"
+    kwriteconfig6 --file kdeglobals --group Icons --key Theme "DDCmacOsTahoeKdeTheme-icons-dark"
+    kwriteconfig6 --file kcminputrc --group Mouse --key cursorTheme "DDCmacOsTahoeKdeTheme"
     kwriteconfig6 --file kcminputrc --group Mouse --key cursorSize "32"
 
     # Set application style
     kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle "kvantum-dark"
 
     # Set sound theme
-    kwriteconfig6 --file kdeglobals --group Sounds --key Theme "MacOS Sounds"
+    kwriteconfig6 --file kdeglobals --group Sounds --key Theme "DDCmacOsTahoeKdeTheme Sounds"
 
     ok "Dark theme applied"
 
@@ -321,7 +285,7 @@ ok "DDCmacOsTahoeKdeTheme v${VERSION} installation complete!"
 echo ""
 echo "Notes:"
 echo "  - Log out and back in for all changes to take effect"
-echo "  - To reinstall without downloading icons/GTK/SDDM:"
+echo "  - To reinstall without icons/GTK/SDDM:"
 echo "    ./install.sh --no-icons --no-gtk --no-sddm"
 echo ""
 echo "  Thunderbird/Betterbird dark theme (optional):"

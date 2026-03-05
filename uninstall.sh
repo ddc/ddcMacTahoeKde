@@ -69,25 +69,22 @@ ok "Kvantum theme removed"
 # -------------------------------------------------------------------
 # Remove sound theme
 # -------------------------------------------------------------------
-info "Removing MacOS Sounds..."
-rm -rf "$HOME/.local/share/sounds/MacOS Sounds"
+info "Removing DDCmacOsTahoeKdeTheme Sounds..."
+rm -rf "$HOME/.local/share/sounds/DDCmacOsTahoeKdeTheme Sounds"
 ok "Sound theme removed"
 
 # -------------------------------------------------------------------
 # Remove icon themes (optional)
 # -------------------------------------------------------------------
 if $REMOVE_ICONS; then
-    info "Removing WhiteSur icon themes..."
-    rm -rf "$HOME/.local/share/icons/WhiteSur"
-    rm -rf "$HOME/.local/share/icons/WhiteSur-dark"
-    rm -rf "$HOME/.local/share/icons/WhiteSur-light"
-    ok "WhiteSur icons removed"
+    info "Removing DDCmacOsTahoeKdeTheme icon theme..."
+    rm -rf "$HOME/.local/share/icons/DDCmacOsTahoeKdeTheme-icons-dark"
+    ok "DDCmacOsTahoeKdeTheme icons removed"
 
-    info "Removing MacTahoe icon/cursor themes..."
-    rm -rf "$HOME/.local/share/icons/MacTahoe"
-    rm -rf "$HOME/.local/share/icons/MacTahoe-dark"
-    rm -rf "$HOME/.local/share/icons/MacTahoe-light"
-    ok "MacTahoe icons/cursors removed"
+    info "Removing DDCmacOsTahoeKdeTheme cursor themes..."
+    rm -rf "$HOME/.local/share/icons/DDCmacOsTahoeKdeTheme"
+    rm -rf "$HOME/.local/share/icons/DDCmacOsTahoeKdeTheme-dark"
+    ok "DDCmacOsTahoeKdeTheme cursors removed"
 else
     warn "Keeping icon themes (--keep-icons)"
 fi
@@ -96,10 +93,9 @@ fi
 # Remove GTK themes (optional)
 # -------------------------------------------------------------------
 if $REMOVE_GTK; then
-    info "Removing MacTahoe GTK themes..."
-    rm -rf "$HOME/.local/share/themes/MacTahoe-Dark"
-    rm -rf "$HOME/.local/share/themes/MacTahoe-Dark-Darker"
-    ok "GTK themes removed"
+    info "Removing DDCmacOsTahoeKdeTheme GTK theme..."
+    rm -rf "$HOME/.themes/DDCmacOsTahoeKdeTheme-Dark"
+    ok "GTK theme removed"
 else
     warn "Keeping GTK themes (--keep-gtk)"
 fi
