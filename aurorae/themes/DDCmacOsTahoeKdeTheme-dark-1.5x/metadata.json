@@ -1,0 +1,26 @@
+{
+    "KPackageStructure": "aurorae",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "daniel@ddcsoftwares.com",
+                "Name": "Daniel Costa"
+            }
+        ],
+        "Category": "Plasma 6 Window Decorations",
+        "ServiceTypes": [
+            "aurorae"
+        ],
+        "EnabledByDefault": true,
+        "Name": "DDCmacOsTahoeKdeTheme-dark-1.5x",
+        "Description" : "DDCmacOsTahoeKdeTheme-dark-1.5x window decorations",
+        "Id": "DDCmacOsTahoeKdeTheme-dark-1.5x",
+        "Version": "1.0.3",
+        "License": "GPL-3.0",
+        "Website": "https://github.com/ddc/macOsTahoeKdeTheme",
+        "X-KDE-PluginInfo-blur": false,
+        "X-KPackage-Dependencies": [
+        ]
+    }
+}
+
