@@ -185,8 +185,7 @@ macOsTahoeKdeTheme/
 │   └── DDCmacOsTahoeKdeTheme-dark/
 ├── scripts/                             # Helper scripts
 │   ├── add_cursor_sizes.py              # Adds 36px/40px cursor sizes
-│   ├── bump_version.sh                  # Version bump utility
-│   └── update_icons.sh                  # Updates icons from upstream
+│   └── bump_version.sh                  # Version bump utility
 └── extras/                              # Thunderbird/Betterbird theme
 ```
 

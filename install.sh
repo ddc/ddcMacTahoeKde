@@ -75,7 +75,7 @@ if [[ ${#MISSING[@]} -gt 0 ]]; then
 fi
 
 if $APPLY_THEME; then
-    for cmd in plasma-apply-desktoptheme plasma-apply-colorscheme; do
+    for cmd in plasma-apply-lookandfeel plasma-apply-desktoptheme plasma-apply-colorscheme; do
         if ! command -v "$cmd" &>/dev/null; then
             warn "$cmd not found — theme will be installed but not applied automatically"
             APPLY_THEME=false
@@ -232,6 +232,7 @@ fi
 # -------------------------------------------------------------------
 if $APPLY_THEME; then
     info "Applying dark theme..."
+    plasma-apply-lookandfeel -a com.github.ddc.DDCmacOsTahoeKdeTheme-dark
     plasma-apply-colorscheme DDCmacOsTahoeKdeTheme-dark
     plasma-apply-desktoptheme DDCmacOsTahoeKdeTheme-dark
     kvantummanager --set DDCmacOsTahoeKdeTheme-dark
