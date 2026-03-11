@@ -1,0 +1,11 @@
+[Wallpaper]
+defaultWallpaperTheme=
+defaultWallpaperPlugin=org.kde.color
+
+[ContrastEffect]
+enabled=false
+contrast=0.2
+saturation=10
+
+[AdaptiveTransparency]
+enabled=true

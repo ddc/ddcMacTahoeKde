@@ -1,0 +1,36 @@
+# Default: normalize line endings to LF
+* text=auto eol=lf
+
+# Python sources
+*.py text eol=lf diff=python
+*.pyi text eol=lf diff=python
+
+# Config/data files
+*.cfg text eol=lf
+*.ini text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+*.env text eol=lf
+
+# Binary files (prevent corruption)
+*.db binary
+*.sqlite binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.whl binary
+
+# Export-ignore (excluded from git archive / GitHub source downloads)
+.gitattributes export-ignore
+.gitignore export-ignore
+.github/ export-ignore
+tests/ export-ignore
+junit.xml export-ignore
+coverage.xml export-ignore

@@ -10,7 +10,7 @@
     <a href="https://ko-fi.com/ddcsta"><img src="https://img.shields.io/badge/Ko--fi-ddcsta-FF5E5B?style=plastic&logo=kofi&logoColor=white&color=brightgreen" alt="Ko-fi"/></a>
     <a href="https://www.paypal.com/ncp/payment/6G9Z78QHUD4RJ"><img src="https://img.shields.io/badge/Donate-PayPal-brightgreen.svg?style=plastic&logo=paypal&logoColor=white" alt="Donate"/></a>
     <br>
-    <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic&logo=gnu&logoColor=white" alt="License: GPLv3"/></a>
+    <a href="https://github.com/ddc/macOsTahoeKdeTheme/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic&logo=gnu&logoColor=white" alt="License: GPLv3"/></a>
     <a href="https://github.com/ddc/macOsTahoeKdeTheme/releases/latest"><img src="https://img.shields.io/github/v/release/ddc/macOsTahoeKdeTheme?style=plastic&logo=github&logoColor=white" alt="Release"/></a>
     <br>
     <a href="https://github.com/ddc/macOsTahoeKdeTheme/issues"><img src="https://img.shields.io/github/issues/ddc/macOsTahoeKdeTheme?style=plastic&logo=github&logoColor=white" alt="issues"/></a>
@@ -24,6 +24,7 @@
 
 - [What's Changed](#whats-changed)
 - [Components](#components)
+- [Install Locations](#install-locations)
 - [Installation](#installation)
     - [Dependencies](#dependencies)
     - [Install](#install)
@@ -38,58 +39,74 @@
 
 # What's Changed
 
-This project takes [vinceliuice's MacTahoe theme](https://github.com/vinceliuice/MacTahoe-kde) and applies the following modifications:
+This project takes [vinceliuice's MacTahoe theme](https://github.com/vinceliuice/MacTahoe-kde) and applies the following
+modifications:
 
 - **Plasma desktop theme SVGs** — replaced with Breeze Dark originals for consistent panel/widget styling
 - **Kvantum colors
-  ** — dark variant recolored from warm grays (#1f1f1f, #282828, #333333) to Breeze Dark's cool blue-grays (#141618, #202326, #292c30)
+  ** — dark variant recolored from warm grays (#1f1f1f, #282828, #333333) to Breeze Dark's cool blue-grays (#141618,
+  #202326, #292c30)
 - **KDE color scheme** — selection/highlight colors corrected
 - **Inactive window behavior** — fixed (no dimming, blur on all windows)
 - **Tab alignment** — left-aligned tabs in Konsole, Kate, and other apps (Kvantum `left_tabs=true`)
 - **GTK theme** — color patch for `_colors.scss` to match the Breeze Dark palette
-- **Look-and-feel defaults** — corrected icons (WhiteSur), cursors, and sound theme references
+- **Look-and-feel defaults** — corrected icons, cursors, and sound theme references
 - **Widget configuration icons** — replaced with Breeze defaults for consistent close/config buttons
 
 # Components
 
 | Component          | Name                                 |
 |--------------------|--------------------------------------|
-| Color Scheme       | DDCmacOsTahoeKdeThemeDark            |
+| Color Scheme       | DDCmacOsTahoeKdeTheme-dark           |
 | Application Style  | kvantum-dark                         |
-| Plasma Theme       | DDCmacOsTahoeKdeTheme-Dark           |
-| Window Decorations | DDCmacOsTahoeKdeTheme-Dark (Aurorae) |
-| Icons              | WhiteSur-dark                        |
-| Cursors            | MacTahoe                             |
-| System Sounds      | MacOS Sounds                         |
-| Splash Screen      | DDCmacOsTahoeKdeTheme-Dark           |
-| SDDM               | DDCmacOsTahoeKdeTheme-Dark           |
-| GTK Style          | MacTahoe-Dark-Darker                 |
-| Kvantum Style      | DDCmacOsTahoeKdeThemeDark            |
+| Plasma Theme       | DDCmacOsTahoeKdeTheme-dark           |
+| Window Decorations | DDCmacOsTahoeKdeTheme-dark (Aurorae) |
+| Icons              | DDCmacOsTahoeKdeTheme-icons-dark     |
+| Cursors (default)  | DDCmacOsTahoe-cursor-dark            |
+| Cursors            | DDCmacOsTahoe-cursor-mixed           |
+| Cursors            | DDCmacOsTahoe-cursor-white           |
+| Cursors            | DDCmacOsMonterey-cursor-white        |
+| System Sounds      | DDCmacOsKdeTheme-sounds         |
+| GTK Style          | DDCmacOsTahoeKdeTheme-dark           |
+| Kvantum Style      | DDCmacOsTahoeKdeTheme-dark           |
+
+# Install Locations
+
+| Component            | Install Location                                                                 |
+|----------------------|----------------------------------------------------------------------------------|
+| Plasma Desktop Theme | `~/.local/share/plasma/desktoptheme/DDCmacOsTahoeKdeTheme-dark/`                 |
+| Look-and-Feel        | `~/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoeKdeTheme-dark/` |
+| Aurorae Decorations  | `~/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark{,-1.25x,-1.5x}/`       |
+| Color Scheme         | `~/.local/share/color-schemes/DDCmacOsTahoeKdeTheme-dark.colors`                 |
+| Sound Theme          | `~/.local/share/sounds/DDCmacOsKdeTheme-sounds/`                            |
+| Icon Theme           | `~/.local/share/icons/DDCmacOsTahoeKdeTheme-icons-dark/`                         |
+| Cursor Themes        | `~/.local/share/icons/DDCmacOsTahoe-cursor-{dark,white,mixed}/`                  |
+| Cursor Theme         | `~/.local/share/icons/DDCmacOsMonterey-cursor-white/`                            |
+| GTK Theme            | `~/.themes/DDCmacOsTahoeKdeTheme-dark/`                                          |
+| Kvantum Theme        | `~/.config/Kvantum/DDCmacOsTahoeKdeTheme-dark/`                                  |
 
 # Installation
 
 ## Dependencies
 
 - `kvantum` — Qt style engine
-- `sassc` — SCSS compiler (for GTK theme build)
-- `git` — for downloading icon and GTK themes
 
 On Fedora:
 
 ```bash
-sudo dnf install -y kvantum sassc git
+sudo dnf install -y kvantum
 ```
 
 On Ubuntu / Debian:
 
 ```bash
-sudo apt install -y qt6-style-kvantum sassc git
+sudo apt install -y qt6-style-kvantum
 ```
 
 On Arch:
 
 ```bash
-sudo pacman -S --noconfirm kvantum sassc git
+sudo pacman -S --noconfirm kvantum
 ```
 
 ## Install
@@ -98,8 +115,8 @@ sudo pacman -S --noconfirm kvantum sassc git
 # Install everything and apply the theme
 ./install.sh
 
-# Install without downloading icons/GTK/SDDM
-./install.sh --no-icons --no-gtk --no-sddm
+# Install without icons/GTK
+./install.sh --no-icons --no-gtk
 
 # Install files only, don't apply
 ./install.sh --no-apply
@@ -118,13 +135,12 @@ sudo pacman -S --noconfirm kvantum sassc git
 # What the Installer Does
 
 1. Copies Plasma desktop theme, look-and-feel package, Aurorae window decorations, color scheme, and Kvantum theme to their proper locations
-2. Copies the MacOS system sounds theme
-3. Downloads and installs [WhiteSur icon theme](https://github.com/vinceliuice/WhiteSur-icon-theme) (icons, with close icons patched to Breeze X)
-4. Downloads and installs [MacTahoe icon theme](https://github.com/vinceliuice/MacTahoe-icon-theme) (cursors)
-5. Downloads [MacTahoe GTK theme](https://github.com/vinceliuice/MacTahoe-gtk-theme), applies the Breeze Dark color patch, and builds the dark variant
-6. Installs the SDDM login theme (requires sudo)
-7. Applies the dark theme
-8. Clears the Plasma SVG cache
+2. Copies the DDCmacOsKdeTheme-sounds theme
+3. Installs the bundled icon theme (DDCmacOsTahoeKdeTheme-icons-dark)
+4. Installs four bundled cursor themes (DDCmacOsTahoe-cursor-dark, DDCmacOsTahoe-cursor-white, DDCmacOsTahoe-cursor-mixed, DDCmacOsMonterey-cursor-white) and converts text aliases to symlinks
+5. Installs the bundled GTK theme (DDCmacOsTahoeKdeTheme-dark)
+6. Applies the dark theme (color scheme, Plasma theme, Kvantum, GTK, Aurorae, icons, cursors, sounds)
+7. Clears the Plasma SVG cache
 
 # Extras
 
@@ -139,36 +155,56 @@ A `userChrome.css` is included for dark-themed Thunderbird/Betterbird:
 # Project Structure
 
 ```
-DDCmacOsTahoeKdeTheme/
-├── install.sh
-├── uninstall.sh
+macOsTahoeKdeTheme/
+├── install.sh                           # Theme installer
+├── uninstall.sh                         # Theme uninstaller
+├── VERSION                              # Version file
 ├── plasma/
-│   ├── desktoptheme/          # Patched Plasma SVGs
-│   └── look-and-feel/         # Global theme packages
-├── aurorae/themes/            # Window decorations (3 scale variants)
-├── color-schemes/             # KDE color schemes
-├── kvantum/DDCmacOsTahoeKdeTheme/    # Kvantum theme configs + SVGs
-├── sddm/DDCmacOsTahoeKdeTheme-Dark/  # SDDM login theme
-├── sounds/MacOS Sounds/       # System sound theme
-├── gtk/colors.patch           # Breeze Dark color patch for GTK
-└── extras/                    # Thunderbird/Betterbird theme
+│   ├── desktoptheme/                    # Patched Plasma SVGs
+│   │   └── DDCmacOsTahoeKdeTheme-dark/
+│   └── look-and-feel/                   # Global theme package
+│       └── com.github.ddc.DDCmacOsTahoeKdeTheme-dark/
+├── aurorae/themes/                      # Window decorations (3 scale variants)
+│   ├── DDCmacOsTahoeKdeTheme-dark/
+│   ├── DDCmacOsTahoeKdeTheme-dark-1.25x/
+│   └── DDCmacOsTahoeKdeTheme-dark-1.5x/
+├── color-schemes/                       # KDE color scheme
+│   └── DDCmacOsTahoeKdeTheme-dark.colors
+├── kvantum/                             # Kvantum theme configs + SVGs
+│   └── DDCmacOsTahoeKdeTheme-dark/
+├── sounds/                              # System sound theme
+│   └── DDCmacOsKdeTheme-sounds/
+├── icons/                               # Icon theme
+│   └── DDCmacOsTahoeKdeTheme-icons-dark/
+├── cursors/                             # Cursor themes
+│   ├── DDCmacOsTahoe-cursor-dark/
+│   ├── DDCmacOsTahoe-cursor-white/
+│   ├── DDCmacOsTahoe-cursor-dark/       # Default cursor theme
+│   └── DDCmacOsMonterey-cursor-white/
+├── gtk/themes/                          # GTK theme
+│   └── DDCmacOsTahoeKdeTheme-dark/
+├── scripts/                             # Helper scripts
+│   └── add_cursor_sizes.py              # Adds 36px/40px cursor sizes
+├── bump_version.sh                      # Version bump utility
+└── extras/                              # Thunderbird/Betterbird theme
 ```
 
 # Credits
 
 This project is a color-corrected fork of themes by [vinceliuice](https://github.com/vinceliuice):
 
-- [MacTahoe-kde](https://github.com/vinceliuice/MacTahoe-kde) — Plasma desktop theme, Aurorae decorations, Kvantum theme, color schemes, SDDM theme
-- [MacTahoe-gtk-theme](https://github.com/vinceliuice/MacTahoe-gtk-theme) — GTK theme (patched via `gtk/colors.patch`)
-- [MacTahoe-icon-theme](https://github.com/vinceliuice/MacTahoe-icon-theme) — Icon theme and cursors
+- [MacTahoe-kde](https://github.com/vinceliuice/MacTahoe-kde) — Plasma desktop theme, Aurorae decorations, Kvantum theme, color schemes
+- [MacTahoe-gtk-theme](https://github.com/vinceliuice/MacTahoe-gtk-theme) — GTK theme
+- [MacTahoe-icon-theme](https://github.com/vinceliuice/MacTahoe-icon-theme) — Cursors
 - [WhiteSur-icon-theme](https://github.com/vinceliuice/WhiteSur-icon-theme) — Icon theme (with close icons patched to Breeze X)
 - MacOS Sounds — System sound theme (Apple macOS sound effects)
 
 # License
 
-GPLv3, same as the original MacTahoe themes.
+Released under the [GPLv3](https://github.com/ddc/macOsTahoeKdeTheme/blob/master/LICENSE)
 
 # Support
+
 If you find this project helpful, consider supporting development:
 
 - [GitHub Sponsor](https://github.com/sponsors/ddc)
