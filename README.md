@@ -66,7 +66,7 @@ modifications:
 | Cursors            | DDCmacOsTahoe-cursor-mixed           |
 | Cursors            | DDCmacOsTahoe-cursor-white           |
 | Cursors            | DDCmacOsMonterey-cursor-white        |
-| System Sounds      | DDCmacOsKdeTheme-sounds         |
+| System Sounds      | DDCmacOsKdeTheme-sounds              |
 | GTK Style          | DDCmacOsTahoeKdeTheme-dark           |
 | Kvantum Style      | DDCmacOsTahoeKdeTheme-dark           |
 
@@ -78,7 +78,7 @@ modifications:
 | Look-and-Feel        | `~/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoeKdeTheme-dark/` |
 | Aurorae Decorations  | `~/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark{,-1.25x,-1.5x}/`       |
 | Color Scheme         | `~/.local/share/color-schemes/DDCmacOsTahoeKdeTheme-dark.colors`                 |
-| Sound Theme          | `~/.local/share/sounds/DDCmacOsKdeTheme-sounds/`                            |
+| Sound Theme          | `~/.local/share/sounds/DDCmacOsKdeTheme-sounds/`                                 |
 | Icon Theme           | `~/.local/share/icons/DDCmacOsTahoeKdeTheme-icons-dark/`                         |
 | Cursor Themes        | `~/.local/share/icons/DDCmacOsTahoe-cursor-{dark,white,mixed}/`                  |
 | Cursor Theme         | `~/.local/share/icons/DDCmacOsMonterey-cursor-white/`                            |
@@ -188,6 +188,51 @@ macOsTahoeKdeTheme/
 ├── bump_version.sh                      # Version bump utility
 └── extras/                              # Thunderbird/Betterbird theme
 ```
+
+# Color Scheme Differences (DDC vs Breeze Dark)
+
+The DDC theme uses a deep blue accent and orange active highlights instead of Breeze Dark's light blue. Below are all the color values that differ:
+
+| Section              | Setting             | DDC Theme     | Breeze Dark  |
+|----------------------|---------------------|---------------|--------------|
+| Colors:Button        | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:Button        | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:Button        | ForegroundLink      | `41,128,185`  | `29,153,243` |
+| Colors:Button        | ForegroundVisited   | `127,140,141` | `155,89,182` |
+| Colors:Selection     | BackgroundAlternate | `41,44,48`    | `30,87,116`  |
+| Colors:Selection     | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:Selection     | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:Selection     | ForegroundActive    | `246,116,0`   | `61,174,233` |
+| Colors:Selection     | ForegroundLink      | `49,91,239`   | `29,153,243` |
+| Colors:Selection     | ForegroundNegative  | `237,21,21`   | `218,68,83`  |
+| Colors:Selection     | ForegroundNeutral   | `201,206,59`  | `246,116,0`  |
+| Colors:Selection     | ForegroundPositive  | `17,209,22`   | `39,174,96`  |
+| Colors:Selection     | ForegroundVisited   | `49,91,239`   | `155,89,182` |
+| Colors:Tooltip       | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:Tooltip       | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:Tooltip       | ForegroundActive    | `246,116,0`   | `61,174,233` |
+| Colors:Tooltip       | ForegroundLink      | `49,91,239`   | `29,153,243` |
+| Colors:Tooltip       | ForegroundNegative  | `237,21,21`   | `218,68,83`  |
+| Colors:Tooltip       | ForegroundNeutral   | `201,206,59`  | `246,116,0`  |
+| Colors:Tooltip       | ForegroundPositive  | `17,209,22`   | `39,174,96`  |
+| Colors:Tooltip       | ForegroundVisited   | `49,91,239`   | `155,89,182` |
+| Colors:View          | BackgroundAlternate | `41,44,48`    | `32,35,38`   |
+| Colors:View          | BackgroundNormal    | `32,35,38`    | `41,44,48`   |
+| Colors:View          | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:View          | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:View          | ForegroundActive    | `49,91,239`   | `61,174,233` |
+| Colors:View          | ForegroundLink      | `49,91,239`   | `29,153,243` |
+| Colors:View          | ForegroundVisited   | `127,140,141` | `155,89,182` |
+| Colors:Complementary | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:Complementary | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:Complementary | ForegroundActive    | `49,91,239`   | `61,174,233` |
+| Colors:Complementary | ForegroundLink      | `49,91,239`   | `29,153,243` |
+| Colors:Complementary | ForegroundVisited   | `120,120,120` | `155,89,182` |
+| Colors:Header        | DecorationFocus     | `49,91,239`   | `61,174,233` |
+| Colors:Header        | DecorationHover     | `49,91,239`   | `61,174,233` |
+| Colors:Header        | ForegroundActive    | `49,91,239`   | `61,174,233` |
+| Colors:Header        | ForegroundLink      | `49,91,239`   | `29,153,243` |
+| Colors:Header        | ForegroundVisited   | `120,120,120` | `155,89,182` |
 
 # Credits
 
