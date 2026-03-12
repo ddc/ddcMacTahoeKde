@@ -189,15 +189,17 @@ if $INSTALL_ICONS; then
     ok "Cursor aliases fixed"
 
     # Add 36px and 40px cursor sizes for MacTahoe-based cursors
-    # (upstream only ships 18,24,32,48,64,72). Scales from 32px→36px and 48px→40px.
+    # Fix nominal sizes and add missing 32, 36, 40, 44px cursor sizes.
     if command -v python3 &>/dev/null && python3 -c "from PIL import Image" 2>/dev/null; then
-        info "Adding 36px and 40px cursor sizes..."
+        info "Fixing cursor sizes and adding 32, 36, 40, 44px..."
         python3 "$SCRIPT_DIR/scripts/add_cursor_sizes.py" \
             "${ICON_DIR}/DDCmacOsTahoe-cursor-dark/cursors" \
-            "${ICON_DIR}/DDCmacOsTahoe-cursor-white/cursors"
-        ok "Cursor sizes 36 and 40 added"
+            "${ICON_DIR}/DDCmacOsTahoe-cursor-white/cursors" \
+            "${ICON_DIR}/DDCmacOsTahoe-cursor-mixed/cursors" \
+            "${ICON_DIR}/DDCmacOsMonterey-cursor-white/cursors"
+        ok "Cursor sizes fixed"
     else
-        warn "python3-pillow not found — skipping extra cursor sizes (36, 40)"
+        warn "python3-pillow not found — skipping cursor size fixes"
     fi
 
     # Fix PyCharm cursor: replace size_hor with col-resize symlink

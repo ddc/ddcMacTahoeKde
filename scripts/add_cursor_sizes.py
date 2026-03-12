@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""Add 36px and 40px cursor sizes to Xcursor binary files.
+"""Fix cursor nominal sizes and add missing 32px, 36px, and 40px sizes.
 
-Reads each Xcursor file, extracts the 32px image, scales it to 36 and 40,
-adjusts hotspots proportionally, and rebuilds the file with all sizes.
+Upstream cursors declare wrong nominal sizes (e.g. nominal=32 but actual=48x48).
+This script:
+  1. Fixes nominal sizes to match actual pixel dimensions
+  2. Creates proper 32px, 36px, and 40px cursors by scaling
+  3. Removes any old incorrectly-sized entries for 36/40
+
+Usage: add_cursor_sizes.py <cursor_dir> [<cursor_dir> ...]
 """
 
 import struct
 import sys
 from pathlib import Path
 from PIL import Image
-import io
 
 
 def read_xcursor(filepath):
@@ -17,12 +21,9 @@ def read_xcursor(filepath):
     with open(filepath, "rb") as f:
         data = f.read()
 
-    magic = data[0:4]
-    if magic != b"Xcur":
+    if data[0:4] != b"Xcur":
         return None
 
-    header_size = struct.unpack_from("<I", data, 4)[0]
-    version = struct.unpack_from("<I", data, 8)[0]
     ntoc = struct.unpack_from("<I", data, 12)[0]
 
     images = []
@@ -32,13 +33,11 @@ def read_xcursor(filepath):
         toc_subtype = struct.unpack_from("<I", data, toc_offset + 4)[0]
         toc_position = struct.unpack_from("<I", data, toc_offset + 8)[0]
 
-        if toc_type != 0xFFFD0002:  # Not an image chunk
+        if toc_type != 0xFFFD0002:
             continue
 
         pos = toc_position
         chunk_header_size = struct.unpack_from("<I", data, pos)[0]
-        chunk_type = struct.unpack_from("<I", data, pos + 4)[0]
-        chunk_subtype = struct.unpack_from("<I", data, pos + 8)[0]
         chunk_version = struct.unpack_from("<I", data, pos + 12)[0]
         width = struct.unpack_from("<I", data, pos + 16)[0]
         height = struct.unpack_from("<I", data, pos + 20)[0]
@@ -52,7 +51,7 @@ def read_xcursor(filepath):
 
         images.append(
             {
-                "size": chunk_subtype,
+                "size": toc_subtype,
                 "width": width,
                 "height": height,
                 "xhot": xhot,
@@ -67,35 +66,30 @@ def read_xcursor(filepath):
 
 
 def pixels_to_pil(pixels, width, height):
-    """Convert premultiplied ARGB pixel data to straight-alpha PIL Image."""
+    """Convert premultiplied BGRA pixel data to straight-alpha PIL Image."""
     import numpy as np
 
     arr = np.frombuffer(pixels, dtype=np.uint8).reshape((height, width, 4)).copy()
-    # Xcursor stores BGRA premultiplied
     b, g, r, a = arr[:, :, 0], arr[:, :, 1], arr[:, :, 2], arr[:, :, 3]
-    # Unpremultiply: divide RGB by alpha to get straight alpha
     mask = a > 0
     af = a[mask].astype(np.float32) / 255.0
     r[mask] = np.clip(r[mask].astype(np.float32) / af, 0, 255).astype(np.uint8)
     g[mask] = np.clip(g[mask].astype(np.float32) / af, 0, 255).astype(np.uint8)
     b[mask] = np.clip(b[mask].astype(np.float32) / af, 0, 255).astype(np.uint8)
-    # Build RGBA straight-alpha image
     rgba = np.stack([r, g, b, a], axis=2)
     return Image.fromarray(rgba)
 
 
 def pil_to_pixels(img):
-    """Convert straight-alpha PIL Image to premultiplied ARGB pixel data."""
+    """Convert straight-alpha PIL Image to premultiplied BGRA pixel data."""
     import numpy as np
 
     rgba = np.array(img, dtype=np.uint8)
     r, g, b, a = rgba[:, :, 0], rgba[:, :, 1], rgba[:, :, 2], rgba[:, :, 3]
-    # Premultiply: multiply RGB by alpha
     af = a.astype(np.float32) / 255.0
     r_pm = np.clip(r.astype(np.float32) * af, 0, 255).astype(np.uint8)
     g_pm = np.clip(g.astype(np.float32) * af, 0, 255).astype(np.uint8)
     b_pm = np.clip(b.astype(np.float32) * af, 0, 255).astype(np.uint8)
-    # Xcursor stores BGRA premultiplied
     bgra = np.stack([b_pm, g_pm, r_pm, a], axis=2)
     return bytes(bgra.tobytes())
 
@@ -105,7 +99,7 @@ def scale_image_entry(entry, new_size):
     img = pixels_to_pil(entry["pixels"], entry["width"], entry["height"])
     scaled = img.resize((new_size, new_size), Image.LANCZOS)
 
-    scale_factor = new_size / entry["size"]
+    scale_factor = new_size / entry["width"]
     new_xhot = round(entry["xhot"] * scale_factor)
     new_yhot = round(entry["yhot"] * scale_factor)
 
@@ -126,31 +120,25 @@ def write_xcursor(filepath, images):
     ntoc = len(images)
     header_size = 16
     toc_size = ntoc * 12
-    chunk_header_size = 36  # Standard image chunk header
+    chunk_header_size = 36
 
-    # Calculate positions
     positions = []
     pos = header_size + toc_size
     for img in images:
         positions.append(pos)
         pos += chunk_header_size + img["width"] * img["height"] * 4
 
-    # Build file
     out = bytearray()
-
-    # File header
     out += b"Xcur"
     out += struct.pack("<I", header_size)
-    out += struct.pack("<I", 0x00010000)  # version 1.0
+    out += struct.pack("<I", 0x00010000)
     out += struct.pack("<I", ntoc)
 
-    # TOC entries
     for i, img in enumerate(images):
-        out += struct.pack("<I", 0xFFFD0002)  # image type
-        out += struct.pack("<I", img["size"])  # subtype = nominal size
+        out += struct.pack("<I", 0xFFFD0002)
+        out += struct.pack("<I", img["size"])
         out += struct.pack("<I", positions[i])
 
-    # Image chunks
     for img in images:
         out += struct.pack("<I", chunk_header_size)
         out += struct.pack("<I", 0xFFFD0002)
@@ -168,45 +156,46 @@ def write_xcursor(filepath, images):
 
 
 def process_cursor_file(filepath):
-    """Add 36 and 40 pixel sizes to a cursor file."""
+    """Fix nominal sizes and add 32, 36, 40, 44 pixel sizes."""
     images = read_xcursor(filepath)
     if images is None:
         return False
 
-    existing_sizes = {img["size"] for img in images}
-    sizes_to_add = {36, 40} - existing_sizes
+    # Step 1: Fix nominal sizes to match actual pixel dimensions
+    for img in images:
+        img["size"] = img["width"]
 
-    if not sizes_to_add:
-        return True  # Already has these sizes
+    # Step 2: Remove any entries whose actual pixels don't match nominal size
+    # (from previous runs where nominals were wrong)
+    images = [img for img in images if img["size"] == img["width"]]
 
-    # Find best source for scaling: use 32px for 36, and 48px for 40
-    source_map = {36: 32, 40: 48}
-
-    # Group images by size (for animated cursors, there may be multiple frames per size)
+    # Group by actual size (for animated cursors with multiple frames)
     by_size = {}
     for img in images:
         by_size.setdefault(img["size"], []).append(img)
 
-    new_images = list(images)
+    # Step 3: Create missing sizes by scaling from nearest larger size
+    sizes_to_add = {32, 36, 40, 44} - set(by_size.keys())
 
     for target_size in sorted(sizes_to_add):
-        preferred_source = source_map.get(target_size)
-        # Find best available source
-        if preferred_source in by_size:
-            source_size = preferred_source
+        # Find closest larger size, or closest overall
+        available = sorted(by_size.keys())
+        larger = [s for s in available if s > target_size]
+        if larger:
+            source_size = larger[0]  # smallest larger size
         else:
-            # Fall back to closest available size
-            available = sorted(by_size.keys())
-            source_size = min(available, key=lambda s: abs(s - target_size))
+            source_size = available[-1]  # largest available
 
         for source_entry in by_size[source_size]:
             new_entry = scale_image_entry(source_entry, target_size)
-            new_images.append(new_entry)
+            images.append(new_entry)
 
-    # Sort by size then by delay (frame order for animated cursors)
-    new_images.sort(key=lambda x: (x["size"], x["delay"]))
+        by_size[target_size] = [img for img in images if img["size"] == target_size]
 
-    write_xcursor(filepath, new_images)
+    # Sort by size then delay
+    images.sort(key=lambda x: (x["size"], x["delay"]))
+
+    write_xcursor(filepath, images)
     return True
 
 
@@ -229,7 +218,6 @@ def main():
                 continue
             if not cursor_file.is_file():
                 continue
-            # Check if it's an Xcursor file
             with open(cursor_file, "rb") as f:
                 magic = f.read(4)
             if magic != b"Xcur":
