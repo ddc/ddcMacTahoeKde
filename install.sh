@@ -1,6 +1,6 @@
 #!/bin/bash
-# DDCmacOsTahoeKdeTheme Theme Installer
-# Installs the DDCmacOsTahoeKdeTheme dark theme suite with Breeze Dark-aligned colors.
+# DDCmacOsTahoe Theme Installer
+# Installs the DDCmacOsTahoe dark theme suite with Breeze Dark-aligned colors.
 #
 # Usage: ./install.sh [OPTIONS]
 #
@@ -91,9 +91,9 @@ ok "Dependencies satisfied"
 PLASMA_THEME_DIR="$HOME/.local/share/plasma/desktoptheme"
 mkdir -p "$PLASMA_THEME_DIR"
 
-info "Installing Plasma desktop theme: DDCmacOsTahoeKdeTheme-dark..."
-cp -a "$SCRIPT_DIR/plasma/desktoptheme/DDCmacOsTahoeKdeTheme-dark" "$PLASMA_THEME_DIR/"
-ok "DDCmacOsTahoeKdeTheme-dark desktop theme installed"
+info "Installing Plasma desktop theme: DDCmacOsTahoe-dark..."
+cp -a "$SCRIPT_DIR/plasma/desktoptheme/DDCmacOsTahoe-dark" "$PLASMA_THEME_DIR/"
+ok "DDCmacOsTahoe-dark desktop theme installed"
 
 # -------------------------------------------------------------------
 # Step 3: Copy look-and-feel package
@@ -101,9 +101,9 @@ ok "DDCmacOsTahoeKdeTheme-dark desktop theme installed"
 LAF_DIR="$HOME/.local/share/plasma/look-and-feel"
 mkdir -p "$LAF_DIR"
 
-info "Installing look-and-feel: DDCmacOsTahoeKdeTheme-dark..."
-cp -a "$SCRIPT_DIR/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoeKdeTheme-dark" "$LAF_DIR/"
-ok "DDCmacOsTahoeKdeTheme-dark look-and-feel installed"
+info "Installing look-and-feel: DDCmacOsTahoe-dark..."
+cp -a "$SCRIPT_DIR/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoe-dark" "$LAF_DIR/"
+ok "DDCmacOsTahoe-dark look-and-feel installed"
 
 # -------------------------------------------------------------------
 # Step 4: Copy Aurorae window decorations
@@ -111,11 +111,11 @@ ok "DDCmacOsTahoeKdeTheme-dark look-and-feel installed"
 AURORAE_DIR="$HOME/.local/share/aurorae/themes"
 mkdir -p "$AURORAE_DIR"
 
-info "Installing Aurorae decorations: DDCmacOsTahoeKdeTheme-dark..."
-cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoeKdeTheme-dark" "$AURORAE_DIR/"
-cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoeKdeTheme-dark-1.25x" "$AURORAE_DIR/"
-cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoeKdeTheme-dark-1.5x" "$AURORAE_DIR/"
-ok "DDCmacOsTahoeKdeTheme-dark Aurorae decorations installed"
+info "Installing Aurorae decorations: DDCmacOsTahoe-dark..."
+cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoe-dark" "$AURORAE_DIR/"
+cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoe-dark-1.25x" "$AURORAE_DIR/"
+cp -a "$SCRIPT_DIR/aurorae/themes/DDCmacOsTahoe-dark-1.5x" "$AURORAE_DIR/"
+ok "DDCmacOsTahoe-dark Aurorae decorations installed"
 
 # -------------------------------------------------------------------
 # Step 5: Copy color scheme
@@ -123,18 +123,18 @@ ok "DDCmacOsTahoeKdeTheme-dark Aurorae decorations installed"
 COLOR_DIR="$HOME/.local/share/color-schemes"
 mkdir -p "$COLOR_DIR"
 
-info "Installing color scheme: DDCmacOsTahoeKdeTheme-dark..."
-cp -a "$SCRIPT_DIR/color-schemes/DDCmacOsTahoeKdeTheme-dark.colors" "$COLOR_DIR/"
-ok "DDCmacOsTahoeKdeTheme-dark color scheme installed"
+info "Installing color scheme: DDCmacOsTahoe-dark..."
+cp -a "$SCRIPT_DIR/color-schemes/DDCmacOsTahoe-dark.colors" "$COLOR_DIR/"
+ok "DDCmacOsTahoe-dark color scheme installed"
 
 # -------------------------------------------------------------------
 # Step 6: Copy Kvantum theme
 # -------------------------------------------------------------------
-KVANTUM_DIR="$HOME/.config/Kvantum/DDCmacOsTahoeKdeTheme-dark"
+KVANTUM_DIR="$HOME/.config/Kvantum/DDCmacOsTahoe-dark"
 mkdir -p "$KVANTUM_DIR"
 
-info "Installing Kvantum theme: DDCmacOsTahoeKdeTheme-dark..."
-cp -a "$SCRIPT_DIR/kvantum/DDCmacOsTahoeKdeTheme-dark/"* "$KVANTUM_DIR/"
+info "Installing Kvantum theme: DDCmacOsTahoe-dark..."
+cp -a "$SCRIPT_DIR/kvantum/DDCmacOsTahoe-dark/"* "$KVANTUM_DIR/"
 ok "Kvantum theme installed"
 
 # -------------------------------------------------------------------
@@ -154,8 +154,8 @@ if $INSTALL_ICONS; then
     ICON_DIR="$HOME/.local/share/icons"
     mkdir -p "$ICON_DIR"
 
-    info "Installing DDCmacOsTahoeKdeTheme-icons-dark..."
-    cp -a "$SCRIPT_DIR/icons/DDCmacOsTahoeKdeTheme-icons-dark" "$ICON_DIR/"
+    info "Installing DDCmacOsTahoe-icons-dark..."
+    cp -a "$SCRIPT_DIR/icons/DDCmacOsTahoe-icons-dark" "$ICON_DIR/"
     ok "Icon theme installed"
 
     # -------------------------------------------------------------------
@@ -209,8 +209,8 @@ if $INSTALL_GTK; then
     GTK_DIR="$HOME/.themes"
     mkdir -p "$GTK_DIR"
 
-    info "Installing GTK theme: DDCmacOsTahoeKdeTheme-dark..."
-    cp -a "$SCRIPT_DIR/gtk/themes/DDCmacOsTahoeKdeTheme-dark" "$GTK_DIR/"
+    info "Installing GTK theme: DDCmacOsTahoe-dark..."
+    cp -a "$SCRIPT_DIR/gtk/themes/DDCmacOsTahoe-dark" "$GTK_DIR/"
     ok "GTK theme installed"
 else
     warn "Skipping GTK theme installation (--no-gtk)"
@@ -221,17 +221,17 @@ fi
 # -------------------------------------------------------------------
 if $APPLY_THEME; then
     info "Applying dark theme..."
-    plasma-apply-lookandfeel -a com.github.ddc.DDCmacOsTahoeKdeTheme-dark
-    plasma-apply-colorscheme DDCmacOsTahoeKdeTheme-dark
-    plasma-apply-desktoptheme DDCmacOsTahoeKdeTheme-dark
-    kvantummanager --set DDCmacOsTahoeKdeTheme-dark
+    plasma-apply-lookandfeel -a com.github.ddc.DDCmacOsTahoe-dark
+    plasma-apply-colorscheme DDCmacOsTahoe-dark
+    plasma-apply-desktoptheme DDCmacOsTahoe-dark
+    kvantummanager --set DDCmacOsTahoe-dark
 
     # Set Aurorae decoration
     kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library "org.kde.kwin.aurorae.v2"
-    kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme "__aurorae__svg__DDCmacOsTahoeKdeTheme-dark"
+    kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme "__aurorae__svg__DDCmacOsTahoe-dark"
 
     # Set icons and cursor
-    kwriteconfig6 --file kdeglobals --group Icons --key Theme "DDCmacOsTahoeKdeTheme-icons-dark"
+    kwriteconfig6 --file kdeglobals --group Icons --key Theme "DDCmacOsTahoe-icons-dark"
     kwriteconfig6 --file kcminputrc --group Mouse --key cursorTheme "DDCmacOsTahoe-cursor-dark"
     kwriteconfig6 --file kcminputrc --group Mouse --key cursorSize "32"
 
@@ -243,8 +243,8 @@ if $APPLY_THEME; then
 
     # Set GTK theme
     if $INSTALL_GTK; then
-        kwriteconfig6 --file gtk-3.0/settings.ini --group Settings --key gtk-theme-name "DDCmacOsTahoeKdeTheme-dark"
-        kwriteconfig6 --file gtk-4.0/settings.ini --group Settings --key gtk-theme-name "DDCmacOsTahoeKdeTheme-dark"
+        kwriteconfig6 --file gtk-3.0/settings.ini --group Settings --key gtk-theme-name "DDCmacOsTahoe-dark"
+        kwriteconfig6 --file gtk-4.0/settings.ini --group Settings --key gtk-theme-name "DDCmacOsTahoe-dark"
     fi
 
     ok "Dark theme applied"
@@ -267,7 +267,7 @@ ok "Cache cleared"
 # Done
 # -------------------------------------------------------------------
 echo ""
-ok "DDCmacOsTahoeKdeTheme v${VERSION} installation complete!"
+ok "DDCmacOsTahoe v${VERSION} installation complete!"
 echo ""
 echo "Notes:"
 echo "  - Log out and back in for all changes to take effect"

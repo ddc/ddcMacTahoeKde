@@ -57,33 +57,33 @@ modifications:
 
 | Component          | Name                                 |
 |--------------------|--------------------------------------|
-| Color Scheme       | DDCmacOsTahoeKdeTheme-dark           |
+| Color Scheme       | DDCmacOsTahoe-dark           |
 | Application Style  | kvantum-dark                         |
-| Plasma Theme       | DDCmacOsTahoeKdeTheme-dark           |
-| Window Decorations | DDCmacOsTahoeKdeTheme-dark (Aurorae) |
-| Icons              | DDCmacOsTahoeKdeTheme-icons-dark     |
+| Plasma Theme       | DDCmacOsTahoe-dark           |
+| Window Decorations | DDCmacOsTahoe-dark (Aurorae) |
+| Icons              | DDCmacOsTahoe-icons-dark     |
 | Cursors (default)  | DDCmacOsTahoe-cursor-dark            |
 | Cursors            | DDCmacOsTahoe-cursor-mixed           |
 | Cursors            | DDCmacOsTahoe-cursor-white           |
 | Cursors            | DDCmacOsMonterey-cursor-white        |
 | System Sounds      | DDCmacOsKdeTheme-sounds              |
-| GTK Style          | DDCmacOsTahoeKdeTheme-dark           |
-| Kvantum Style      | DDCmacOsTahoeKdeTheme-dark           |
+| GTK Style          | DDCmacOsTahoe-dark           |
+| Kvantum Style      | DDCmacOsTahoe-dark           |
 
 # Install Locations
 
 | Component            | Install Location                                                                 |
 |----------------------|----------------------------------------------------------------------------------|
-| Plasma Desktop Theme | `~/.local/share/plasma/desktoptheme/DDCmacOsTahoeKdeTheme-dark/`                 |
-| Look-and-Feel        | `~/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoeKdeTheme-dark/` |
-| Aurorae Decorations  | `~/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark{,-1.25x,-1.5x}/`       |
-| Color Scheme         | `~/.local/share/color-schemes/DDCmacOsTahoeKdeTheme-dark.colors`                 |
+| Plasma Desktop Theme | `~/.local/share/plasma/desktoptheme/DDCmacOsTahoe-dark/`                 |
+| Look-and-Feel        | `~/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoe-dark/` |
+| Aurorae Decorations  | `~/.local/share/aurorae/themes/DDCmacOsTahoe-dark{,-1.25x,-1.5x}/`       |
+| Color Scheme         | `~/.local/share/color-schemes/DDCmacOsTahoe-dark.colors`                 |
 | Sound Theme          | `~/.local/share/sounds/DDCmacOsKdeTheme-sounds/`                                 |
-| Icon Theme           | `~/.local/share/icons/DDCmacOsTahoeKdeTheme-icons-dark/`                         |
+| Icon Theme           | `~/.local/share/icons/DDCmacOsTahoe-icons-dark/`                         |
 | Cursor Themes        | `~/.local/share/icons/DDCmacOsTahoe-cursor-{dark,white,mixed}/`                  |
 | Cursor Theme         | `~/.local/share/icons/DDCmacOsMonterey-cursor-white/`                            |
-| GTK Theme            | `~/.themes/DDCmacOsTahoeKdeTheme-dark/`                                          |
-| Kvantum Theme        | `~/.config/Kvantum/DDCmacOsTahoeKdeTheme-dark/`                                  |
+| GTK Theme            | `~/.themes/DDCmacOsTahoe-dark/`                                          |
+| Kvantum Theme        | `~/.config/Kvantum/DDCmacOsTahoe-dark/`                                  |
 
 # Installation
 
@@ -136,9 +136,9 @@ sudo pacman -S --noconfirm kvantum
 
 1. Copies Plasma desktop theme, look-and-feel package, Aurorae window decorations, color scheme, and Kvantum theme to their proper locations
 2. Copies the DDCmacOsKdeTheme-sounds theme
-3. Installs the bundled icon theme (DDCmacOsTahoeKdeTheme-icons-dark)
+3. Installs the bundled icon theme (DDCmacOsTahoe-icons-dark)
 4. Installs four bundled cursor themes (DDCmacOsTahoe-cursor-dark, DDCmacOsTahoe-cursor-white, DDCmacOsTahoe-cursor-mixed, DDCmacOsMonterey-cursor-white) and converts text aliases to symlinks
-5. Installs the bundled GTK theme (DDCmacOsTahoeKdeTheme-dark)
+5. Installs the bundled GTK theme (DDCmacOsTahoe-dark)
 6. Applies the dark theme (color scheme, Plasma theme, Kvantum, GTK, Aurorae, icons, cursors, sounds)
 7. Clears the Plasma SVG cache
 
@@ -161,28 +161,28 @@ macOsTahoeKdeTheme/
 ├── VERSION                              # Version file
 ├── plasma/
 │   ├── desktoptheme/                    # Patched Plasma SVGs
-│   │   └── DDCmacOsTahoeKdeTheme-dark/
+│   │   └── DDCmacOsTahoe-dark/
 │   └── look-and-feel/                   # Global theme package
-│       └── com.github.ddc.DDCmacOsTahoeKdeTheme-dark/
+│       └── com.github.ddc.DDCmacOsTahoe-dark/
 ├── aurorae/themes/                      # Window decorations (3 scale variants)
-│   ├── DDCmacOsTahoeKdeTheme-dark/
-│   ├── DDCmacOsTahoeKdeTheme-dark-1.25x/
-│   └── DDCmacOsTahoeKdeTheme-dark-1.5x/
+│   ├── DDCmacOsTahoe-dark/
+│   ├── DDCmacOsTahoe-dark-1.25x/
+│   └── DDCmacOsTahoe-dark-1.5x/
 ├── color-schemes/                       # KDE color scheme
-│   └── DDCmacOsTahoeKdeTheme-dark.colors
+│   └── DDCmacOsTahoe-dark.colors
 ├── kvantum/                             # Kvantum theme configs + SVGs
-│   └── DDCmacOsTahoeKdeTheme-dark/
+│   └── DDCmacOsTahoe-dark/
 ├── sounds/                              # System sound theme
 │   └── DDCmacOsKdeTheme-sounds/
 ├── icons/                               # Icon theme
-│   └── DDCmacOsTahoeKdeTheme-icons-dark/
+│   └── DDCmacOsTahoe-icons-dark/
 ├── cursors/                             # Cursor themes
 │   ├── DDCmacOsTahoe-cursor-dark/
 │   ├── DDCmacOsTahoe-cursor-white/
 │   ├── DDCmacOsTahoe-cursor-dark/       # Default cursor theme
 │   └── DDCmacOsMonterey-cursor-white/
 ├── gtk/themes/                          # GTK theme
-│   └── DDCmacOsTahoeKdeTheme-dark/
+│   └── DDCmacOsTahoe-dark/
 ├── scripts/                             # Helper scripts
 │   └── add_cursor_sizes.py              # Adds 36px/40px cursor sizes
 ├── bump_version.sh                      # Version bump utility

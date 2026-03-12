@@ -1,0 +1,19 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "daniel@ddcsoftwares.com",
+                "Name": "Daniel Costa"
+            }
+        ],
+        "Category": "Plasma 6.0 theme",
+        "Description": "DDCmacOsTahoe dark theme for KDE Plasma",
+        "EnabledByDefault": true,
+        "Id": "DDCmacOsTahoe-dark",
+        "License": "GPL-3.0",
+        "Name": "DDCmacOsTahoe-dark",
+        "Version": "1.0.3",
+        "Website": "https://github.com/ddc/macOsTahoeKdeTheme"
+    },
+    "X-Plasma-API": "5.0"
+}

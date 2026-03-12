@@ -1,6 +1,6 @@
 #!/bin/bash
-# DDCmacOsTahoeKdeTheme Theme Uninstaller
-# Removes all DDCmacOsTahoeKdeTheme theme components and restores Breeze defaults.
+# DDCmacOsTahoe Theme Uninstaller
+# Removes all DDCmacOsTahoe theme components and restores Breeze defaults.
 #
 # Usage: ./uninstall.sh [--keep-icons] [--keep-gtk]
 
@@ -31,37 +31,37 @@ done
 # Remove Plasma desktop themes
 # -------------------------------------------------------------------
 info "Removing Plasma desktop themes..."
-rm -rf "$HOME/.local/share/plasma/desktoptheme/DDCmacOsTahoeKdeTheme-dark"
+rm -rf "$HOME/.local/share/plasma/desktoptheme/DDCmacOsTahoe-dark"
 ok "Desktop themes removed"
 
 # -------------------------------------------------------------------
 # Remove look-and-feel packages
 # -------------------------------------------------------------------
 info "Removing look-and-feel packages..."
-rm -rf "$HOME/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoeKdeTheme-dark"
+rm -rf "$HOME/.local/share/plasma/look-and-feel/com.github.ddc.DDCmacOsTahoe-dark"
 ok "Look-and-feel packages removed"
 
 # -------------------------------------------------------------------
 # Remove Aurorae window decorations
 # -------------------------------------------------------------------
 info "Removing Aurorae window decorations..."
-rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark"
-rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark-1.25x"
-rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoeKdeTheme-dark-1.5x"
+rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoe-dark"
+rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoe-dark-1.25x"
+rm -rf "$HOME/.local/share/aurorae/themes/DDCmacOsTahoe-dark-1.5x"
 ok "Aurorae decorations removed"
 
 # -------------------------------------------------------------------
 # Remove color schemes
 # -------------------------------------------------------------------
 info "Removing color schemes..."
-rm -f "$HOME/.local/share/color-schemes/DDCmacOsTahoeKdeTheme-dark.colors"
+rm -f "$HOME/.local/share/color-schemes/DDCmacOsTahoe-dark.colors"
 ok "Color schemes removed"
 
 # -------------------------------------------------------------------
 # Remove Kvantum themes
 # -------------------------------------------------------------------
 info "Removing Kvantum theme..."
-rm -rf "$HOME/.config/Kvantum/DDCmacOsTahoeKdeTheme-dark"
+rm -rf "$HOME/.config/Kvantum/DDCmacOsTahoe-dark"
 ok "Kvantum theme removed"
 
 # -------------------------------------------------------------------
@@ -75,9 +75,9 @@ ok "Sound theme removed"
 # Remove icon themes (optional)
 # -------------------------------------------------------------------
 if $REMOVE_ICONS; then
-    info "Removing DDCmacOsTahoeKdeTheme icon theme..."
-    rm -rf "$HOME/.local/share/icons/DDCmacOsTahoeKdeTheme-icons-dark"
-    ok "DDCmacOsTahoeKdeTheme icons removed"
+    info "Removing DDCmacOsTahoe icon theme..."
+    rm -rf "$HOME/.local/share/icons/DDCmacOsTahoe-icons-dark"
+    ok "DDCmacOsTahoe icons removed"
 
     info "Removing DDCmacOsTahoe cursor themes..."
     rm -rf "$HOME/.local/share/icons/DDCmacOsTahoe-cursor-dark"
@@ -93,8 +93,8 @@ fi
 # Remove GTK themes (optional)
 # -------------------------------------------------------------------
 if $REMOVE_GTK; then
-    info "Removing DDCmacOsTahoeKdeTheme GTK theme..."
-    rm -rf "$HOME/.themes/DDCmacOsTahoeKdeTheme-dark"
+    info "Removing DDCmacOsTahoe GTK theme..."
+    rm -rf "$HOME/.themes/DDCmacOsTahoe-dark"
     ok "GTK theme removed"
 else
     warn "Keeping GTK themes (--keep-gtk)"
@@ -138,5 +138,5 @@ rm -rf "$HOME/.cache/ksvg-elements/"
 ok "Cache cleared"
 
 echo ""
-ok "DDCmacOsTahoeKdeTheme uninstallation complete!"
+ok "DDCmacOsTahoe uninstallation complete!"
 echo "  Log out and back in for all changes to take effect."
