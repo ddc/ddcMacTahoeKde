@@ -15,7 +15,7 @@
         "Name": "DDCmacOsTahoe-dark-1.5x",
         "Description" : "DDCmacOsTahoe-dark-1.5x window decorations",
         "Id": "DDCmacOsTahoe-dark-1.5x",
-        "Version": "1.0.3",
+        "Version": "1.0.4",
         "License": "GPL-3.0",
         "Website": "https://github.com/ddc/macOsTahoeKdeTheme",
         "X-KDE-PluginInfo-blur": false,
